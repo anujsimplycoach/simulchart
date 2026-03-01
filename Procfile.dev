@@ -1,0 +1,5 @@
+web: bin/rails server -p 3000
+css: node_modules/.bin/nodemon --watch ./app/assets/stylesheets/ --ext scss --exec "yarn build:css"
+ws: bundle exec anycable
+cable: bin/dist/anycable-go --port=3334
+worker: bundle exec sidekiq

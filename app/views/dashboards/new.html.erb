@@ -1,0 +1,16 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-5">
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-4">
+        <h3 class="fw-bold mb-4">New Dashboard</h3>
+        <%= form_with model: @dashboard, local: true do |f| %>
+          <div class="mb-3">
+            <%= f.label :name, "Dashboard Name", class: "form-label fw-semibold" %>
+            <%= f.text_field :name, class: "form-control", placeholder: "e.g. Sales Overview" %>
+          </div>
+          <%= f.submit "Create Dashboard", class: "btn btn-dark w-100" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

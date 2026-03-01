@@ -1,0 +1,5 @@
+api1: cd api1 && bundle exec ruby app.rb
+api2: cd api2 && bundle exec ruby app.rb
+api3: cd api3 && bundle exec ruby app.rb
+api4: cd api4 && bundle exec ruby app.rb
+api5: cd api5 && bundle exec ruby app.rb

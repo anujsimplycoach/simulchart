@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h2 class="fw-bold mb-0"><%= @dashboard.name %></h2>
+    <small class="text-muted"><%= @charts.count %> charts — loading via WebSocket + Sidekiq threads</small>
+  </div>
+  <%= link_to "← Back", dashboards_path, class: "btn btn-outline-secondary btn-sm" %>
+</div>
+
+<%# Pass chart metadata to JS via a data attribute on a wrapper div %>
+<div
+  id="dashboard-root"
+  data-controller="dashboard"
+  data-dashboard-stream-value="dashboard_<%= @dashboard.id %>"
+  data-dashboard-charts-value="<%= @charts.to_json %>"
+>
+  <div id="charts-grid" class="row g-3">
+    <% @charts.each do |chart| %>
+      <div class="col-md-6 col-xl-4" id="col_<%= chart[:id] %>">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h6 class="fw-bold text-muted mb-0"><%= chart[:title] %></h6>
+              <span
+                id="badge_<%= chart[:id] %>"
+                class="badge bg-warning text-dark"
+              >Loading...</span>
+            </div>
+            <%# Skeleton loader shown until chart data arrives %>
+            <div id="skeleton_<%= chart[:id] %>" class="skeleton-box" style="height:260px; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 6px;"></div>
+            <%# Chart container hidden until data arrives %>
+            <div
+              id="<%= chart[:id] %>"
+              data-controller="chart"
+              data-chart-type-value="<%= chart[:chart_type] %>"
+              style="height:260px; display:none;"
+            ></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<style>
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+</style>

@@ -31,7 +31,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem 'mongoid', '~> 8.0'
+gem 'mongoid', '~> 9.0'
 gem 'devise'
 gem 'anycable-rails'
 gem 'sidekiq'

@@ -97,7 +97,7 @@ GEM
     base64 (0.3.0)
     bcrypt (3.1.21)
     benchmark (0.5.0)
-    bigdecimal (4.0.1)
+    bigdecimal (4.1.2)
     bindex (0.8.1)
     bootsnap (1.23.0)
       msgpack (~> 1.2)
@@ -215,17 +215,17 @@ GEM
     mcp (0.7.1)
       json-schema (>= 4.1)
     mini_mime (1.1.5)
-    minitest (6.0.2)
+    minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
-    mongo (2.23.0)
+    mongo (2.24.0)
       base64
       bson (>= 4.14.1, < 6.0.0)
-    mongoid (8.1.12)
-      activemodel (>= 5.1, < 8.1, != 7.0.0)
+    mongoid (9.1.0)
+      activemodel (>= 5.1, < 8.2, != 7.0.0)
       concurrent-ruby (>= 1.0.5, < 2.0)
       mongo (>= 2.18.0, < 3.0.0)
-      ruby2_keywords (~> 0.0.5)
+      ostruct
     msgpack (1.8.0)
     net-imap (0.6.3)
       date
@@ -254,6 +254,7 @@ GEM
     nokogiri (1.19.1-x86_64-linux-musl)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    ostruct (0.6.3)
     parallel (1.27.0)
     parser (3.3.10.2)
       ast (~> 2.4.1)
@@ -356,7 +357,6 @@ GEM
       rubocop-rails (>= 2.30)
     ruby-next-core (1.2.0)
     ruby-progressbar (1.13.0)
-    ruby2_keywords (0.0.5)
     rubyzip (3.2.2)
     securerandom (0.4.1)
     selenium-webdriver (4.41.0)
@@ -432,7 +432,7 @@ DEPENDENCIES
   devise
   importmap-rails
   jbuilder
-  mongoid (~> 8.0)
+  mongoid (~> 9.1)
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
   redis
